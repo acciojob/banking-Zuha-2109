@@ -19,6 +19,8 @@ public class CurrentAccount extends BankAccount{
         // If the characters of the license Id can be rearranged to create any valid license Id
         // If it is not possible, throw "Valid License can not be generated" Exception
 
+        // rearrange licence id ro create new valid license id
+
         if(!isTradeIdValid(tradeLicenseId)){
             String newTradeLicenseId = newString(tradeLicenseId);
             if(newTradeLicenseId == ""){
@@ -39,7 +41,7 @@ public class CurrentAccount extends BankAccount{
     }
 
     public String newString(String tradeId){
-        int n = tradeId.length();
+        int len = tradeId.length();
 
         int alpha = 26; //26 alphabets
 
@@ -53,12 +55,12 @@ public class CurrentAccount extends BankAccount{
         char ch_maxcount = getCountChar(count);
         int maxCount = count[(int) ch_maxcount-(int)'A'];
 
-        if(maxCount > (n+1)/2){
+        if(maxCount > (len+1)/2){
             return "";
         }
 
         String result = "";
-        for(int i=0;i<n;i++){
+        for(int i=0;i<len;i++){
             result+=' ';
         }
         int index = 0;
@@ -70,7 +72,7 @@ public class CurrentAccount extends BankAccount{
         count[(int) ch_maxcount - (int) 'A'] = 0;
         for (int i=0; i<alpha; i++) {
             while (count[i] > 0) {
-                index = (index >= n) ? 1 : index;
+                index = (index >= len) ? 1 : index;
                 result = result.substring(0, index) + (char) ((int) 'A' + i) + result.substring(index+1);
                 index += 2;
                 count[i]--;
@@ -81,7 +83,8 @@ public class CurrentAccount extends BankAccount{
     public char getCountChar(int[] counting) {
         int max = 0;
         char ch = 0;
-        for (int i=0; i<26; i++) {
+        int alphabet = 26;
+        for (int i=0; i<alphabet; i++) {
             if (counting[i] > max) {
                 max = counting[i];
                 ch = (char) ((int) 'A' + i);
