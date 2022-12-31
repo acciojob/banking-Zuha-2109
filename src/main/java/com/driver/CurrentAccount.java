@@ -41,8 +41,10 @@ public class CurrentAccount extends BankAccount{
     public String newString(String tradeId){
         int n = tradeId.length();
 
-        int[] count = new int[26];
-        for(int i=0;i<26;i++){
+        int alpha = 26; //26 alphabets
+
+        int[] count = new int[alpha];
+        for(int i=0;i<alpha;i++){
             count[i] = 0;
         }
         for(char ch :tradeId.toCharArray()){
@@ -66,7 +68,7 @@ public class CurrentAccount extends BankAccount{
             maxCount--;
         }
         count[(int) ch_maxcount - (int) 'A'] = 0;
-        for (int i=0; i<26; i++) {
+        for (int i=0; i<alpha; i++) {
             while (count[i] > 0) {
                 index = (index >= n) ? 1 : index;
                 result = result.substring(0, index) + (char) ((int) 'A' + i) + result.substring(index+1);
@@ -87,9 +89,10 @@ public class CurrentAccount extends BankAccount{
         }
         return ch;
     }
+
     public String getTradeLicenseId() {
         return tradeLicenseId;
     }
-    }
+}
 
 
