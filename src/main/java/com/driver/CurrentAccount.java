@@ -89,9 +89,9 @@ public class CurrentAccount extends BankAccount{
         }
         return ch;
     }
-//    public String getTradeLicenseId() {
-//        return tradeLicenseId;
-//    }
+    public String getTradeLicenseId() {
+        return tradeLicenseId;
+    }
     }
 
 
