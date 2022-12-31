@@ -62,4 +62,8 @@ public class BankAccount {
         return minBalance;
     }
 
+    public String getName(){
+        return name;
+    }
+
 }
