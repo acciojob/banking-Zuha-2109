@@ -69,9 +69,7 @@ public class CurrentAccount extends BankAccount{
         for (int i=0; i<26; i++) {
             while (count[i] > 0) {
                 index = (index >= n) ? 1 : index;
-                result = result.substring(0, index)
-                        + (char) ((int) 'A' + i)
-                        + result.substring(index + 1);
+                result = result.substring(0, index) + (char) ((int) 'A' + i) + result.substring(index+1);
                 index += 2;
                 count[i]--;
             }

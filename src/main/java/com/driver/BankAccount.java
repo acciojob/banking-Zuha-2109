@@ -29,7 +29,7 @@ public class BankAccount {
             accountNumber += '9';
             sum -= 9;
         }
-        accountNumber += (sum+"");
+        accountNumber += (sum + "");
         while (accountNumber.length() <digits){
             accountNumber += '0';
         }
